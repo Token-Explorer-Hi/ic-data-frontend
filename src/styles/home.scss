@@ -1,0 +1,47 @@
+@use "variables" as *;
+
+.home-card {
+  position: relative;
+  @include flex-column;
+  
+  .home-card-footer {
+    width: 100%;
+    margin-top: auto;
+  }
+}
+
+.home-row {
+  .op {
+    text-transform: capitalize;
+  }
+  & > div {
+    @include flex-column;
+    gap: var(--space-8);
+  }
+  @include no-bottom-border;
+}
+
+.global-search-input .input-clear-icon {
+  display: flex;
+  align-items: center;
+}
+
+.home-bottom {
+  width: 100%;
+  padding-bottom: var(--space-20);
+}
+
+@media screen and (max-width: 640px) {
+  .home-bottom {
+    flex-direction: column;
+    gap: var(--space-20) 0;
+  }
+}
+
+.latest-transaction-row {
+  padding: var(--space-12) var(--space-8);
+  & > div {
+    gap: var(--space-4);
+  }
+  @include no-bottom-border;
+}

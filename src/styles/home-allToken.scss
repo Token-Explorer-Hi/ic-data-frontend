@@ -1,0 +1,13 @@
+@use "variables" as *;
+
+.allTokens-card .card-body {
+  padding: 0;
+}
+
+.home-all-token-row {
+  padding: var(--space-12) var(--space-8);
+  & > div {
+    gap: var(--space-4);
+  }
+  @include no-bottom-border;
+}

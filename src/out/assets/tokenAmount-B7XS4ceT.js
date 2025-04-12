@@ -1,0 +1,1 @@
+import{B as i}from"./index-CeZ0tbR2.js";function m(t,n=8){let e=t,r=n;return e!==0&&!e?new i(0):(typeof e=="bigint"&&(e=Number(e)),typeof r=="bigint"&&(r=Number(r)),Number.isNaN(Number(e))?new i(String(e)):new i(String(e)).dividedBy(10**Number(r)))}export{m as p};

@@ -1,0 +1,15 @@
+.table-wrapper,
+.table-content {
+  width: 100%;
+}
+
+@media screen and (max-width: 640px) {
+  .table-wrapper {
+    overflow: auto hidden;
+  }
+
+  .table-content {
+    /* min-width: 1400px; */
+    width: auto;
+  }
+}

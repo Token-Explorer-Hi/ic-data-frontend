@@ -1,0 +1,20 @@
+.search-wrapper .input-wrapper {
+  width: 50%;
+}
+@media screen and (max-width: 640px) {
+  .search-wrapper .overview-row {
+    flex-direction: column;
+  }
+}
+.search-wrapper .overview-col {
+  padding: var(--space-20);
+  border-right: var(--space-1) solid var(--color-split);
+}
+@media screen and (max-width: 640px) {
+  .search-wrapper .overview-col {
+    border-right: none;
+  }
+}
+.search-wrapper .overview-col:last-of-type {
+  border-right: none;
+}
