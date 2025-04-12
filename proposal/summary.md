@@ -55,5 +55,5 @@ https://github.com/Token-Explorer-Hi/ic-data-frontend/releases/tag/release-1.0.1
 git fetch
 git checkout release-1.0.1
 dfx build
-sha256sum .dfx/ic/canisters/interface/interface.wasm
+sha256sum .dfx/ic/canisters/interface/interface.wasm.gz
 ```
