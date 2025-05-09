@@ -3,6 +3,7 @@ export const navbar = [
   { label: 'Transactions', path: '/transactions' },
   { label: 'Tokens', path: '/token' },
   { label: 'Address', path: '/address' },
-  { label: 'AI Data', path: '/ai-data' },
+  { label: 'AI Store', path: '/ai-store' },
+  // { label: 'AI Chat', path: '/ai-chat' },
   { label: 'SNS', path: '/sns' },
 ];

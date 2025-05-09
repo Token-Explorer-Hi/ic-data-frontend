@@ -4,7 +4,7 @@ import type { RangePickerProps } from 'rc-picker';
 import { RangePicker } from 'rc-picker';
 import generateConfig from 'rc-picker/lib/generate/moment';
 import enUS from 'rc-picker/lib/locale/en_US';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 const DIFF_TIME = 90 * 24 * 3600;
 
@@ -17,20 +17,43 @@ export default function ICExplorerDayPicker({
 }) {
   const theme = useTheme() as Theme;
   const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const [selectedStartDate, setSelectedStartDate] = useState<Moment | null>(
-    null,
+  // Store the selected date range
+  const [selectedRange, setSelectedRange] = useState<[Moment, Moment]>(
+    [moment().subtract(DIFF_TIME, 'seconds'), moment()]
   );
 
   // Range picker change handler
   const handleRangeChange: RangePickerProps<Moment>['onChange'] = (dates) => {
     if (dates && dates[0] && dates[1]) {
+      // Create initial range
+      let from = dates[0];
+      let to = dates[1].endOf('day');
+      
+      // Calculate the time difference in seconds
+      const diffInSeconds = (to.valueOf() - from.valueOf()) / 1000;
+      
+      // If the range is greater than DIFF_TIME (3 months), adjust the from date
+      if (diffInSeconds > DIFF_TIME) {
+        // Set the from date to be 3 months before the to date
+        from = moment(to).subtract(DIFF_TIME, 'seconds');
+      }
+      
+      // Update the displayed date range
+      setSelectedRange([from, to]);
+      
+      // Call the callback with the adjusted date range
       const range = {
-        from: dates[0].toDate(),
-        to: dates[1].endOf('day').toDate(),
+        from: from.toDate(),
+        to: to.toDate(),
       };
       callback?.(range);
+    } else if (dates && dates[0]) {
+      // Only start date selected
+      setSelectedRange([dates[0], selectedRange[1]]);
+    } else if (dates && dates[1]) {
+      // Only end date selected
+      setSelectedRange([selectedRange[0], dates[1]]);
     }
-    setSelectedStartDate(dates?.[0] || null);
   };
 
   return (
@@ -58,7 +81,7 @@ export default function ICExplorerDayPicker({
         }}
       >
         <RangePicker<Moment>
-          defaultValue={[moment().subtract(DIFF_TIME, 'seconds'), moment()]}
+          value={selectedRange}
           onChange={handleRangeChange}
           allowClear={false}
           format="YYYY-MM-DD"

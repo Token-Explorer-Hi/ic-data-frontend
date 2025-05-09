@@ -1905,7 +1905,16 @@ body {
     border-end-start-radius: 0;
   }
 }
-
+.MuiSelect-nativeInput {
+  z-index: 123;
+}
+.MuiTablePagination-select.MuiSelect-select.MuiSelect-standard.MuiInputBase-input {
+  padding-left: 10px;
+  padding-right: 24px;
+}
+.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.MuiTablePagination-selectIcon.MuiSelect-icon.MuiSelect-iconStandard {
+  margin-left: -24px;
+}
 // tag styles
 .LIFECYCLE_ADOPTED {
   background: #feefd8 !important;

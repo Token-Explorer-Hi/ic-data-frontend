@@ -248,7 +248,7 @@ export function TokenTransactions({
           <Table>
             <TableHead>
               <TableRow>
-                {transactions?.list[0].token0TxIndex && (
+                {transactions?.list?.[0]?.token0TxIndex && (
                   <TableCell>
                     <Typography
                       whiteSpace="nowrap"
@@ -263,7 +263,7 @@ export function TokenTransactions({
                     </Typography>
                   </TableCell>
                 )}
-                {transactions?.list[0].token0TxHash ? (
+                {transactions?.list?.[0]?.token0TxHash ? (
                   <TableCell>
                     <Typography
                       whiteSpace="nowrap"
@@ -312,7 +312,7 @@ export function TokenTransactions({
                   </Grid>
                 </TableCell>
 
-                {transactions?.list[0].token0TxHash && (
+                {transactions?.list?.[0]?.token0TxHash && (
                   <TableCell>
                     <Typography
                       whiteSpace="nowrap"
@@ -385,15 +385,15 @@ export function TokenTransactions({
               {filterTransactions?.map(
                 (record: TokenTransaction, index: number) => (
                   <TableRow key={index}>
-                    {record.token0TxIndex && (
+                    {record?.token0TxIndex && (
                       <TableCell>
-                        <Typography>{record.token0TxIndex}</Typography>
+                        <Typography>{record?.token0TxIndex}</Typography>
                       </TableCell>
                     )}
-                    {record.token0TxHash ? (
+                    {record?.token0TxHash ? (
                       <TableCell>
                         <Typography copyable>
-                          {(record.token0TxHash as string).slice(0, 13)}
+                          {(record?.token0TxHash as string).slice(0, 13)}
                           ...
                         </Typography>
                       </TableCell>
