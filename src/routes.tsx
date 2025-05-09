@@ -19,7 +19,7 @@ const SNSTransactions = lazy(() => import('@/pages/sns/transactions'));
 const SNSProposals = lazy(() => import('@/pages/sns/proposals'));
 const SNSNeurons = lazy(() => import('@/pages/sns/neurons'));
 const AiData = lazy(() => import('@/pages/ai-data'));
-const AiChat = lazy(() => import('@/pages/ai-chat'));
+// const AiChat = lazy(() => import('@/pages/ai-chat'));
 
 function AppRoutes() {
   return (
@@ -29,7 +29,7 @@ function AppRoutes() {
         <Route exact path="/address" component={Address} />
         <Route exact path="/sns" component={SNS} />
         <Route exact path="/ai-store" component={AiData} />
-        <Route exact path="/ai-chat" component={AiChat} />
+        {/* <Route exact path="/ai-chat" component={AiChat} /> */}
         <Route exact path="/sns/:id" component={SNSDetail} />
         <Route exact path="/sns/:id/transactions" component={SNSTransactions} />
 

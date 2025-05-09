@@ -26,7 +26,7 @@ This update focuses on enhancing user experience and fixing several bugs across 
 
 ```
 git fetch
-git checkout release-1.0.2
+git checkout release-1.0.3
 dfx build
 sha256sum .dfx/ic/canisters/interface/interface.wasm.gz
 ```
